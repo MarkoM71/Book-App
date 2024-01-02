@@ -1,0 +1,32 @@
+[
+    {
+        "title": "Sapiens: A Brief History of Humankind",
+        "author": "Yuval Noah Harari",
+        "year": 2015
+    },
+        {
+        "title": "Outliers: The Story of Success",
+        "author": "Malcolm Gladwell",
+        "year": 2008
+    },
+    {
+        "title": "The Body Keeps the Score: Brain, Mind, and Body in the Healing of Trauma",
+        "author": "Bessel van der Kolk",
+        "year": 2014
+    },
+    {
+        "title": "Thinking, Fast and Slow",
+        "author": "Daniel Kahneman",
+        "year": 2011
+    },
+    {
+        "title": "The Wright Brothers",
+        "author": "David McCullough",
+        "year": 2015
+    },
+    {
+        "title": "A Brief History of Time",
+        "author": "Stephen Hawking",
+        "year": 1988
+    }
+]
