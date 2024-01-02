@@ -7,7 +7,7 @@ const bookSchema = mongoose.Schema({
     //imagePath: { type: String}
 })
 
-const Book = mongoose.model('User', bookSchema)
+const Book = mongoose.model('Book', bookSchema)
 
 export default Book
 
