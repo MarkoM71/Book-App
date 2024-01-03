@@ -53,6 +53,21 @@ async function editUser(req, res) {
 }
 
 //Delete a User
+async function deleteUser(req, res) {
+    const userId = req.params.userId; // Assuming user's ID is passed as a URL parameter
+
+    try {
+        const deletedUser = await User.findByIdAndDelete(userId);
+
+        if (!deletedUser) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+
+        res.status(200).json({ message: `User ${userId} deleted successfully` });
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+}
 
 //Add a favorite Book Works
 async function addFavoriteBook(req, res) {
@@ -107,6 +122,7 @@ export {
     createUser,
     getAllUsers,
     editUser,
+    deleteUser,
     addFavoriteBook,
     removeFavoriteBook
 }
