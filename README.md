@@ -1,4 +1,4 @@
-# 📚 Book Review App 
+# 📚 Book App 
 
 
 Description:  This is an app where users can choose from a list of books their favorite and write a review about it.

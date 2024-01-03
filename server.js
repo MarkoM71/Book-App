@@ -7,6 +7,8 @@ import cors from 'cors'
 
 //Import Routers Here
 import booksRouter from './routes/books.js'
+import usersRouter from './routes/users.js'
+
 
 const app = express()
 const PORT = process.env.PORT || 3000
@@ -19,6 +21,8 @@ app.use(cors())
 
 //Set up Routes Here
 app.use('/books', booksRouter)
+app.use('/users', usersRouter)
+
 
 
 // Set up the server to listen on a port
