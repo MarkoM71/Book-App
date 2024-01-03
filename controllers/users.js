@@ -22,7 +22,15 @@ async function createUser(req, res) {
     }
 }
 
-
+//Get all Users
+async function getAllUsers(req, res) {
+    try {
+        const users = await User.find({});
+        res.status(200).json(users);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+}
 
 //Edit User Works
 // Controller function to edit a user
@@ -43,6 +51,8 @@ async function editUser(req, res) {
         res.status(500).json({ message: error.message });
     }
 }
+
+//Delete a User
 
 //Add a favorite Book Works
 async function addFavoriteBook(req, res) {
@@ -95,6 +105,7 @@ async function removeFavoriteBook(req, res) {
 
 export {
     createUser,
+    getAllUsers,
     editUser,
     addFavoriteBook,
     removeFavoriteBook
