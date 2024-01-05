@@ -4,6 +4,7 @@ const { Schema } = mongoose;
 
 const userSchema = mongoose.Schema({
     name: { type: String, unique: true, required: true },
+    // email: { type: String, required: true },  this is the way it was previously
     email: { type: String, required: true },
     favorites: [{ 
         type: Schema.Types.ObjectId, 

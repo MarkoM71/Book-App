@@ -16,6 +16,7 @@ const PORT = process.env.PORT || 3000
 
 // Middleware (express.json(), cors)
 app.use(express.json())
+app.use(express.urlencoded()) //Added this in here
 app.use(cors())
 
 

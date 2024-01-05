@@ -4,12 +4,13 @@ import Book from '../models/book.js';
 //Create User
 async function createUser(req, res) {
     try {
-        const { name, email } = req.body;
+        const { name, email } = req.body; 
+        // const { name, password } = req.body;
 
         // Check if the user already exists
         const existingUser = await User.findOne({ email });
         if (existingUser) {
-            return res.status(400).json({ message: 'User already exists' });
+            return res.status(400).json({ message: `User already exists` });
         }
 
         // Create a new user
@@ -22,6 +23,26 @@ async function createUser(req, res) {
     }
 }
 
+//Get One User
+// Controller function to get a user by name and email
+async function getUserByNameAndEmail(req, res) {
+    const { name, email } = req.body; // Assuming the data is sent in the request body
+
+    try {
+        const user = await User.findOne({ name: name, email: email });
+
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+
+        res.status(200).json(user);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+}
+
+
+
 //Get all Users
 async function getAllUsers(req, res) {
     try {
@@ -32,8 +53,7 @@ async function getAllUsers(req, res) {
     }
 }
 
-//Edit User Works
-// Controller function to edit a user
+//Edit User 
 async function editUser(req, res) {
     const userId = req.params.userId; // Assuming you get the user's ID from the URL parameters
     const updateData = req.body; // The new data for the user
@@ -69,7 +89,7 @@ async function deleteUser(req, res) {
     }
 }
 
-//Add a favorite Book Works
+//Add a Favorite Book 
 async function addFavoriteBook(req, res) {
     const { userId, bookId } = req.body; // Assuming you get these from the request body
 
@@ -97,6 +117,7 @@ async function addFavoriteBook(req, res) {
     }
 }
 
+//Remove a Favorite Book
 async function removeFavoriteBook(req, res) {
     const { userId, bookId } = req.body;
 
@@ -121,6 +142,7 @@ async function removeFavoriteBook(req, res) {
 export {
     createUser,
     getAllUsers,
+    getUserByNameAndEmail,
     editUser,
     deleteUser,
     addFavoriteBook,
