@@ -1,15 +1,16 @@
 import express from 'express';
-import { createUser, getAllUsers, getUserByNameAndEmail, editUser, deleteUser, addFavoriteBook, removeFavoriteBook } from '../controllers/users.js'; 
+import { createUser, getAllUsers, getUserByNameAndEmail, editUser, deleteUser, addFavoriteBook, removeFavoriteBook, loginUser } from '../controllers/users.js'; 
 
 const router = express.Router();
 
 //Route to Create a new User
 router.post('/', createUser);
+router.post('/login', loginUser)
 
 //Route to Get all users
 router.get('/', getAllUsers);
 
-//Route to Get One User
+//Route to Get One User //Passing the user ID in the URL parameter.
 router.post('/findOne', getUserByNameAndEmail);
 
 //Route to Edit a User

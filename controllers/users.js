@@ -23,6 +23,24 @@ async function createUser(req, res) {
     }
 }
 
+async function loginUser(req, res) {
+    try {
+        const { email, name } = req.body;
+
+        // Find user by email and name
+        const user = await User.findOne({ email: email, name: name });
+        if (!user) {
+            return res.status(401).json({ message: 'User not found' });
+        }
+
+        // If user is found, consider it a successful login
+        res.status(200).json({ message: 'Login successful', user });
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+}
+
+
 //Get One User
 // Controller function to get a user by name and email
 async function getUserByNameAndEmail(req, res) {
@@ -146,7 +164,8 @@ export {
     editUser,
     deleteUser,
     addFavoriteBook,
-    removeFavoriteBook
+    removeFavoriteBook,
+    loginUser
 }
 
 
