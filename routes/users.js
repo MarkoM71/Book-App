@@ -8,6 +8,7 @@ router.post('/', createUser);
 router.post('/login', loginUser)
 
 //Route to Get all users
+
 router.get('/', getAllUsers);
 
 //Route to Get One User //Passing the user ID in the URL parameter.
