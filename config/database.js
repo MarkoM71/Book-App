@@ -4,7 +4,6 @@ import mongoose from 'mongoose'
 const db = mongoose.connection
 
 // Connect to the database
-// console.log('Database URI:', process.env.DATABASE_URI);
 mongoose.connect(process.env.DATABASE_URI);
 
 

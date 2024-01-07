@@ -5,8 +5,7 @@ import Book from '../models/book.js';
 async function createUser(req, res) {
     try {
         const { name, email } = req.body; 
-        // const { name, password } = req.body;
-
+        
         // Check if the user already exists
         const existingUser = await User.findOne({ email });
         if (existingUser) {
@@ -14,10 +13,11 @@ async function createUser(req, res) {
         }
 
         // Create a new user
-        const user = new User({ name, email });  //!! newUser --> user
-        await user.save();  ///!!!  newUser --> user
+        const user = new User({ name, email });  
+        await user.save();  
 
-        res.status(200).json({ message: 'New User Logged In', user });  ///!!! newUser --> user 201 --> 200
+        res.status(200).json({ message: 'New User Logged In', user });  
+
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
@@ -45,7 +45,7 @@ async function loginUser(req, res) {
 //Get One User
 // Controller function to get a user by name and email
 async function getUserByNameAndEmail(req, res) {
-    const { name, email } = req.body; // Assuming the data is sent in the request body
+    const { name, email } = req.body; 
 
     try {
         const user = await User.findOne({ name: name, email: email });
@@ -61,7 +61,6 @@ async function getUserByNameAndEmail(req, res) {
 }
 
 
-
 //Get all Users
 async function getAllUsers(req, res) {
     try {
@@ -74,8 +73,8 @@ async function getAllUsers(req, res) {
 
 //Edit User 
 async function editUser(req, res) {
-    const userId = req.params.userId; // Assuming you get the user's ID from the URL parameters
-    const updateData = req.body; // The new data for the user
+    const userId = req.params.userId; 
+    const updateData = req.body; 
 
     try {
         // Find the user by ID and update
@@ -93,7 +92,7 @@ async function editUser(req, res) {
 
 //Delete a User
 async function deleteUser(req, res) {
-    const userId = req.params.userId; // Assuming user's ID is passed as a URL parameter
+    const userId = req.params.userId; 
 
     try {
         const deletedUser = await User.findByIdAndDelete(userId);
@@ -110,7 +109,7 @@ async function deleteUser(req, res) {
 
 //Add a Favorite Book 
 async function addFavoriteBook(req, res) {
-    const { userId, bookId } = req.body; // Assuming you get these from the request body
+    const { userId, bookId } = req.body; 
 
     try {
         // Check if the book exists
@@ -170,11 +169,4 @@ export {
 }
 
 
-
-
-//Remove User
-
-
-
-//Edit User
 

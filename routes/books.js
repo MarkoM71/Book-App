@@ -1,7 +1,7 @@
 import express from 'express' 
 const router = express.Router() 
 
-// Import the movie controller
+// Import the books controllers
 import { getBooks, createBook, updateBook, removeBook } from '../controllers/books.js' 
 
 // Get Books

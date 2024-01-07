@@ -12,6 +12,3 @@ const Book = mongoose.model('Book', bookSchema)
 export default Book
 
 
-
-
-//imagePath: { type: String}

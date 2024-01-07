@@ -7,10 +7,10 @@ const router = express.Router();
 router.post('/', createUser);
 router.post('/login', loginUser)
 
-//Route to Get all users
+//Route to Get all Users
 router.get('/', getAllUsers);
 
-//Route to Get One User //Passing the user ID in the URL parameter.
+//Route to Get One User by passing the user ID in the URL parameter.
 router.post('/findOne', getUserByNameAndEmail);
 
 //Route to Edit a User
@@ -29,4 +29,3 @@ router.patch('/favorites', removeFavoriteBook);
 export default router;
 
 
-//editUser,
