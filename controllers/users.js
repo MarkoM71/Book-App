@@ -14,15 +14,16 @@ async function createUser(req, res) {
         }
 
         // Create a new user
-        const newUser = new User({ name, email });
-        await newUser.save();
+        const user = new User({ name, email });  //!! newUser --> user
+        await user.save();  ///!!!  newUser --> user
 
-        res.status(201).json(newUser);
+        res.status(200).json({ message: 'New User Logged In', user });  ///!!! newUser --> user 201 --> 200
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
 }
 
+//Login a User
 async function loginUser(req, res) {
     try {
         const { email, name } = req.body;
